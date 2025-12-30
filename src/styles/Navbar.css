@@ -1,10 +1,9 @@
-/* Navbar 컨테이너 스타일 */
 .navbar {
     background-color: black; /* 어두운 배경 */
     color: #fff; /* 글자색 흰색 */
     display: flex; /* Flexbox를 사용하여 요소 정렬 */
-    padding: 15px 20px; /* 상하 15px, 좌우 20px 패딩 */
     font-size: 2rem;
+    padding: 15px; 
 }
 
 #logout-btn, #login-btn {
