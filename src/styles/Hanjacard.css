@@ -1,0 +1,60 @@
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 200px;
+  margin: 10px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  font-size: 4rem;
+}
+
+.card-back {
+  background-color: white;
+  transform: rotateY(180deg);
+  font-size: 1.3rem;
+}
+
+.check-button {
+  background-color: white;
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.check-button:hover {
+  background-color: #007bff;
+}
+
+
+/* 상태별 색상 */
+.studied { background-color: #d4edda; border-color: #28a745; }
+.unmemorized { background-color: #f8d7da; border-color: #dc3545; }
+.not_studied { background-color: #e2e3e5; border-color: #6c757d; }

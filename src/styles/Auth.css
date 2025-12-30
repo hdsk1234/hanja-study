@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 전체 배경 및 리셋 */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('https://source.unsplash.com/random/1920x1080?nature,water') no-repeat center center/cover;
+  padding: 20px;
+}
+
+/* 메인 카드 (좌우 분할 컨테이너) */
+.auth-card {
+  display: flex;
+  width: 1000px;
+  height: 650px;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* --- 왼쪽: 히어로 섹션 --- */
+.hero-section {
+  flex: 1;
+  background: linear-gradient(135deg, #4ecdc4, #556270); /* 청록색 그라디언트 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.hero-image-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image-placeholder img {
+    max-width: 100%;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+}
+
+/* --- 오른쪽: 폼 섹션 --- */
+.form-section {
+  flex: 1.2;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: white;
+}
+
+.lang-selector {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 0.8rem;
+  color: #666;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Input 스타일 (밑줄 형태) */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+  font-weight: 300;
+}
+
+.input-group input:focus {
+  border-bottom: 1px solid #4ecdc4;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+/* 메인 버튼 */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background: #37b5d8; /* 이미지의 밝은 파란색 */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(55, 181, 216, 0.3);
+  transition: transform 0.2s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  background: #2ca0c0;
+}
+
+/* 구분선 */
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* 소셜 로그인 */
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: white;
+  border: none;
+  border-radius: 5px; /* 이미지처럼 둥글지 않고 약간 각지게 */
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+  transition: background 0.2s;
+}
+
+.social-btn:hover {
+  background: #f9f9f9;
+}
+
+.social-btn .icon {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.social-btn.google .icon { color: #DB4437; }
+.social-btn.naver .icon { color: #03C75A; }
+
+/* 하단 토글 텍스트 */
+.toggle-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.toggle-text span {
+  color: #37b5d8;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.eye-icon {
+  cursor: pointer;
+  opacity: 0.3;
+  font-size: 30px;
+
+}
+
+.eye-icon:hover {
+  opacity: 0.6;
+}
+
+/* 모바일 대응 (반응형) */
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .hero-section {
+    padding: 30px;
+    min-height: 200px;
+  }
+  .form-section {
+    padding: 30px;
+  }
+}
