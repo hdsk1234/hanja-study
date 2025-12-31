@@ -1,11 +1,12 @@
 .navbar {
-    background-color: black; /* 어두운 배경 */
-    color: #fff; /* 글자색 흰색 */
+    background-color: black; 
+    color: white;
     display: flex; /* Flexbox를 사용하여 요소 정렬 */
     font-size: 2rem;
     padding: 15px; 
 }
 
 #logout-btn, #login-btn {
+    background-color: white;
     margin-left: auto;
 }

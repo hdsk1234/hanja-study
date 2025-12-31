@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Serif+KR:wght@400;700&display=swap');
 
 /* 전체 배경 및 리셋 */
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* 영문은 Poppins, 한글은 명조체 계열 추천 (없으면 산세리프) */
+  font-family: 'Poppins', 'Noto Serif KR', serif; 
 }
 
 .auth-wrapper {
@@ -11,8 +12,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('https://source.unsplash.com/random/1920x1080?nature,water') no-repeat center center/cover;
   padding: 20px;
+  background-color: #F5F5DC; /* 전체 배경 미색 적용 */
 }
 
 /* 메인 카드 (좌우 분할 컨테이너) */
@@ -21,15 +22,15 @@
   width: 1000px;
   height: 650px;
   background: white;
-  border-radius: 30px;
+  border-radius: 20px; /* 라운드 약간 줄여서 단정하게 */
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* 그림자 부드럽게 */
 }
 
 /* --- 왼쪽: 히어로 섹션 --- */
 .hero-section {
   flex: 1;
-  background: linear-gradient(135deg, #4ecdc4, #556270); /* 청록색 그라디언트 */
+  background: #1A202C; /* 잉크 네이비 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,8 +40,9 @@
 }
 
 .hero-content h1 {
+  font-family: 'Noto Serif KR', serif; /* 타이틀은 명조체 */
   font-size: 2.5rem;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 700;
   margin-bottom: 20px;
   z-index: 2;
@@ -53,8 +55,8 @@
   justify-content: center;
 }
 .hero-image-placeholder img {
-    max-width: 100%;
-    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+   max-width: 100%;
+   filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
 }
 
 /* --- 오른쪽: 폼 섹션 --- */
@@ -68,117 +70,126 @@
   background: white;
 }
 
-.lang-selector {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 0.8rem;
-  color: #666;
-  cursor: pointer;
-  font-weight: 600;
-}
-
 .form-section h2 {
+  font-family: 'Noto Serif KR', serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 30px;
-  color: #333;
+  color: #1A202C;
 }
 
-/* Input 스타일 (밑줄 형태) */
+/* Input 스타일 (가시성 개선) */
 .input-group {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 10px 0;
+  padding: 12px 0;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #E2E8F0; /* 밑줄을 조금 더 두껍고 연한 회색으로 */
+  background-color: transparent;
   outline: none;
   font-size: 1rem;
+  color: #2D3748;
   transition: border-color 0.3s;
 }
 
 .input-group input::placeholder {
-  color: #aaa;
-  font-weight: 300;
+  color: #A0AEC0;
+  font-weight: 400;
 }
 
 .input-group input:focus {
-  border-bottom: 1px solid #4ecdc4;
+  border-bottom-color: #1A202C; /* 포커스 시 네이비색 */
 }
 
+/* 눈 아이콘 */
 .eye-icon {
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 12px;
   cursor: pointer;
-  opacity: 0.3;
+  opacity: 0.4;
+  font-size: 1.2rem; /* 사이즈 조정 */
+  transition: opacity 0.2s;
+}
+
+.eye-icon:hover {
+  opacity: 0.8;
 }
 
 /* 메인 버튼 */
 .btn-submit {
   width: 100%;
-  padding: 15px;
-  background: #37b5d8; /* 이미지의 밝은 파란색 */
+  padding: 16px;
+  background: #C0392B; /* 인주색 */
   border: none;
   border-radius: 8px;
   color: white;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(55, 181, 216, 0.3);
-  transition: transform 0.2s;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(192, 57, 43, 0.2);
+  transition: all 0.2s;
 }
 
 .btn-submit:hover {
   transform: translateY(-2px);
-  background: #2ca0c0;
+  background: #A93226; /* 호버 시 약간 더 어두운 붉은색 */
+  box-shadow: 0 6px 8px rgba(192, 57, 43, 0.3);
 }
 
 /* 구분선 */
 .divider {
+  display: flex;
+  align-items: center;
   text-align: center;
-  margin: 20px 0;
-  color: #aaa;
+  margin: 25px 0;
+  color: #A0AEC0;
   font-size: 0.9rem;
-  font-weight: 500;
 }
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #E2E8F0;
+}
+.divider::before { margin-right: 10px; }
+.divider::after { margin-left: 10px; }
 
-/* 소셜 로그인 */
+/* 소셜 로그인 (버튼 가시성 개선) */
 .social-login {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
+  flex-direction: column; /* 세로 정렬이 더 깔끔할 수 있음, 취향따라 row로 변경 가능 */
+  gap: 10px;
   margin-bottom: 30px;
 }
 
 .social-btn {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px;
+  gap: 10px;
+  padding: 12px;
   background: white;
-  border: none;
-  border-radius: 5px; /* 이미지처럼 둥글지 않고 약간 각지게 */
+  border: 1px solid #E2E8F0; /* 테두리 추가 */
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #555;
-  transition: background 0.2s;
+  color: #4A5568;
+  transition: background-color 0.2s;
 }
 
 .social-btn:hover {
-  background: #f9f9f9;
+  background-color: #F7FAFC; /* 아주 연한 회색 배경 */
 }
 
 .social-btn .icon {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .social-btn.google .icon { color: #DB4437; }
@@ -188,39 +199,32 @@
 .toggle-text {
   text-align: center;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #718096;
 }
 
 .toggle-text span {
-  color: #37b5d8;
+  color: #C0392B;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.eye-icon {
-  cursor: pointer;
-  opacity: 0.3;
-  font-size: 30px;
-
-}
-
-.eye-icon:hover {
-  opacity: 0.6;
-}
-
-/* 모바일 대응 (반응형) */
+/* 모바일 대응 */
 @media (max-width: 768px) {
   .auth-card {
     flex-direction: column;
     height: auto;
     width: 100%;
+    border-radius: 0;
   }
   .hero-section {
-    padding: 30px;
+    padding: 40px 20px;
     min-height: 200px;
+    text-align: center;
   }
   .form-section {
-    padding: 30px;
+    padding: 40px 20px;
   }
 }

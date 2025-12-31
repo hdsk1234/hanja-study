@@ -76,7 +76,7 @@ const Auth = () => {
         {/* 왼쪽: 히어로 섹션 (이미지/텍스트) */}
         <div className="hero-section">
           <div className="hero-content">
-            <h1>Defy the Past<br />Step into the<br />Future</h1>
+            <h1>한자공부를<br />시작하세요!</h1>
             {/* VR 헤드셋 이미지 자리 (실제 이미지 경로로 교체 필요) */}
             <div className="hero-image-placeholder">
               <img src="/vr-headset.png" alt="VR Headset" onError={(e) => e.currentTarget.style.display='none'} />
@@ -87,14 +87,14 @@ const Auth = () => {
         {/* 오른쪽: 폼 섹션 */}
         <div className="form-section">
           
-          <h2>{isSignup ? 'Create Account' : 'Welcome Back'}</h2>
+          <h2>{isSignup ? '회원가입' : '로그인'}</h2>
           
           <form onSubmit={handleSubmit}>
 
             <div className="input-group">
               <input 
                 type="email" 
-                placeholder="Email" 
+                placeholder="이메일" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required 
@@ -104,7 +104,7 @@ const Auth = () => {
             <div className="input-group">
               <input 
                 type="password" 
-                placeholder="Password" 
+                placeholder="비밀번호" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required 
@@ -117,7 +117,7 @@ const Auth = () => {
                 <div className="input-group">
                   <input 
                     type="password" 
-                    placeholder="Confirm Password" 
+                    placeholder="비밀번호 확인" 
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
@@ -127,7 +127,7 @@ const Auth = () => {
             )}
 
             <button type="submit" className="btn-submit">
-              {isSignup ? 'Create Account' : 'Log In'}
+              {isSignup ? '계정 생성' : '로그인'}
             </button>
           </form>
 
@@ -135,17 +135,17 @@ const Auth = () => {
 
           <div className="social-login">
             <button onClick={handleGoogleLogin} className="social-btn google">
-              <span className="icon">G</span> Signup with Google
+              <span className="icon">G</span> Google로 로그인
             </button>
             <button onClick={handleNaverLogin} className="social-btn naver">
-              <span className="icon">N</span> Signup with Naver
+              <span className="icon">N</span> Naver로 로그인
             </button>
           </div>
 
           <p className="toggle-text">
-            {isSignup ? 'Already have an account?' : "Don't have an account?"}
+            {isSignup ? '이미 계정이 있나요?' : "아직 계정이 없나요?"}
             <span onClick={() => setIsSignup(!isSignup)}>
-              {isSignup ? ' Log In' : ' Sign Up'}
+              {isSignup ? '로그인' : '회원가입'}
             </span>
           </p>
         </div>
