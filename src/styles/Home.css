@@ -5,8 +5,19 @@
   gap: 40px;
 }
 
+.filter-title {
+  border: 1px solid transparent;
+  border-color: black;
+  /* padding: .6em 1.2em; */
+  font-size: 1em;
+  font-weight: 550;
+  font-family: inherit;
+  transition: border-color 0.25s;
+}
+
 .filter-button {
   border: 1px solid transparent;
+  border-color: black;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;

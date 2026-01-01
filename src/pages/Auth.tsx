@@ -15,6 +15,7 @@ import '../styles/Auth.css';
 
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); // UI용 추가
@@ -32,10 +33,10 @@ const Auth = () => {
         // users 컬렉션에 유저 정보 저장
         await setDoc(doc(db, "users", user.uid), {
           uid: user.uid,
+          name: name,
           email: email,
           createdAt: new Date()
         });
-
 
         alert('회원가입 성공');
         setIsSignup(false);
@@ -61,14 +62,21 @@ const Auth = () => {
   }
 
   const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);  
+      navigate('/home');  
+    }
+    catch(err) {
+      alert(err);
+    }
+
   };
 
-  const handleNaverLogin = async () => {
-    const provider = new OAuthProvider('oidc.naver');
-    await signInWithPopup(auth, provider);
-  };
+  // const handleNaverLogin = async () => {
+  //   const provider = new OAuthProvider('oidc.naver');
+  //   await signInWithPopup(auth, provider);
+  // };
 
   return (
     <div className="auth-wrapper">
@@ -90,6 +98,19 @@ const Auth = () => {
           <h2>{isSignup ? '회원가입' : '로그인'}</h2>
           
           <form onSubmit={handleSubmit}>
+
+            {isSignup && (
+              <>
+                <div className="input-group">
+                  <input 
+                    type="name" 
+                    placeholder="이름" 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+              </>
+            )}
 
             <div className="input-group">
               <input 
@@ -135,11 +156,11 @@ const Auth = () => {
 
           <div className="social-login">
             <button onClick={handleGoogleLogin} className="social-btn google">
-              <span className="icon">G</span> Google로 로그인
+              <span className="icon">G</span> {isSignup ? "Google로 시작하기" : "Google로 로그인" }
             </button>
-            <button onClick={handleNaverLogin} className="social-btn naver">
+            {/* <button onClick={handleNaverLogin} className="social-btn naver">
               <span className="icon">N</span> Naver로 로그인
-            </button>
+            </button> */}
           </div>
 
           <p className="toggle-text">

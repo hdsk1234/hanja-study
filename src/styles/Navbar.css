@@ -3,10 +3,37 @@
     color: white;
     display: flex; /* Flexbox를 사용하여 요소 정렬 */
     font-size: 2rem;
-    padding: 15px; 
+    padding: 20px; 
 }
 
 #logout-btn, #login-btn {
-    background-color: white;
-    margin-left: auto;
+  /* 위치 및 크기 */
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-left:auto;
+  
+  /* 색상 및 배경 */
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  
+  /* 폰트 */
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  
+  /* 애니메이션 */
+  transition: all 0.2s ease;
+}
+
+/* 호버(마우스 올렸을 때) 효과 */
+#logout-btn:hover, #login-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* 클릭 효과 */
+#logout-btn:active, #login-btn:active {
+  transform: scale(0.95);
 }

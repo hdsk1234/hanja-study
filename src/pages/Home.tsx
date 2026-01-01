@@ -14,7 +14,7 @@ export interface Hanja {
   sound: string;
   wrongCount: number;
   status: string;
-  grade: number;
+  grade_sanggong: number;
 }
 
 const Home: React.FC = () => {
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
       sound: doc.data().sound,
       wrongCount: 0,
       status: "not_studied",
-      grade: doc.data().grade,
+      grade_sanggong: doc.data().grade_sanggong,
     }));
     setHanjas(hanjas);
   };
@@ -144,10 +144,10 @@ const Home: React.FC = () => {
 
   const filteredHanjas = hanjas
     .filter(h => filter === 'all' || h.status === filter)
-    .filter(h => gradeFilter === 'all' || h.grade.toString() === gradeFilter);
+    .filter(h => gradeFilter === 'all' || h.grade_sanggong.toString() === gradeFilter);
 
   filteredHanjas.sort((a, b) => {
-    if (sortOrder === 'grade') return a.grade - b.grade; // 급수순 (오름차순)
+    if (sortOrder === 'grade') return a.grade_sanggong - b.grade_sanggong; // 급수순 (오름차순)
     if (sortOrder === 'wrong') return b.wrongCount - a.wrongCount; // 틀린 횟수순 (내림차순)
     if (sortOrder === 'alphabetical') return a.sound.localeCompare(b.sound); // 가나다순 (음 기준)
     if (sortOrder === 'random') return Math.random() - 0.5; // 무작위 정렬
@@ -157,12 +157,14 @@ const Home: React.FC = () => {
   return (
     <div className="home-container">
       <div className="filter-bar">
+        <span className="filter-title">학습상태</span>
         <button onClick={() => setFilter('all')} className={`filter-button ${filter === 'all' ? 'active' : ''}`}>전체</button>
         <button onClick={() => setFilter('unmemorized')} className={`filter-button ${filter === 'unmemorized' ? 'active' : ''}`}>미암기</button>
         <button onClick={() => setFilter('studied')} className={`filter-button ${filter === 'studied' ? 'active' : ''}`}>완료</button>
       </div>
 
       <div className="grade-filter-bar">
+        <span className="filter-title">급수</span>
         <button onClick={() => setGradeFilter('all')} className={`filter-button ${gradeFilter === 'all' ? 'active' : ''}`}>전체</button>
         <button onClick={() => setGradeFilter('9')} className={`filter-button ${gradeFilter === '9' ? 'active' : ''}`}>9급</button>
         <button onClick={() => setGradeFilter('8')} className={`filter-button ${gradeFilter === '8' ? 'active' : ''}`}>8급</button>

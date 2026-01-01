@@ -13,8 +13,8 @@ function App() {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // 로그인 상태 감시 리스너
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      // 로그인 상태 감시 리스너
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
